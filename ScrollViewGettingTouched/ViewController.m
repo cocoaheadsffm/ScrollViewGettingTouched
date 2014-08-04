@@ -40,7 +40,7 @@
     [_scrollView addSubview:_drawerView];
     
     [self addDots:20 toView:_drawerView.contentView];
-    [self arrageDotsNeatlyInView:_drawerView.contentView];
+    [self arrageDotsNeatlyInView:_drawerView.contentView animated:NO];
     
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(bounds), CGRectGetHeight(bounds) + CGRectGetHeight(_drawerView.frame));
     _scrollView.contentOffset = CGPointMake(0, CGRectGetHeight(_drawerView.frame));
@@ -100,7 +100,7 @@
     _scrollView.panGestureRecognizer.enabled = YES;
     
     
-    [self arrageDotsNeatlyInView:_drawerView.contentView];
+    [self arrageDotsNeatlyInView:_drawerView.contentView animated:YES];
     
 }
 
@@ -124,7 +124,7 @@
     
     dot.center = [self.view convertPoint:dot.center fromView:dot.superview];
 
-    [self arrageDotsNeatlyInView:_drawerView.contentView];
+    [self arrageDotsNeatlyInView:_drawerView.contentView animated:YES];
 
 }
 
@@ -139,20 +139,27 @@
     }
 }
 
-- (void)arrageDotsNeatlyInView:(UIView*)view {
+- (void)arrageDotsNeatlyInView:(UIView*)view animated:(BOOL)animated {
     CGFloat padding = 30;
     CGFloat spaceOfOneDot = ([DotView maxRadius] * 2) + padding;
     CGFloat maxX = CGRectGetMaxX(view.frame) - (padding*2);
     
-    CGFloat x = padding;
-    CGFloat y = padding;
+    CGFloat x = padding + spaceOfOneDot/2.0f;
+    CGFloat y = padding + spaceOfOneDot/2.0f;
     //NSLog(@"spaceOfOneDot %4.0f maxX %4.0f", spaceOfOneDot, maxX);
+    
+    NSTimeInterval duration = (animated) ? 0.2 : 0.0;
+    NSTimeInterval delay = 0.0;
     for (DotView* dotView in view.subviews) {
-        dotView.frame = CGRectMake(x + (spaceOfOneDot/2) - dotView.radius, y+ (spaceOfOneDot/2) - dotView.radius, CGRectGetWidth(dotView.frame), CGRectGetHeight(dotView.frame));
-            //NSLog(@"dotview %@ %4.0f", NSStringFromCGRect(dotView.frame),dotView.radius);
+        [UIView animateWithDuration:duration delay:delay options:0 animations:^{
+            dotView.center = CGPointMake(x, y);
+        } completion:nil];
+        
+        delay += (animated) ? 0.02 : 0.0;
+        
         x += spaceOfOneDot;
         if (x >= maxX) {
-            x = padding;
+            x = padding + spaceOfOneDot/2.0;
             y += spaceOfOneDot;
         }
     }
