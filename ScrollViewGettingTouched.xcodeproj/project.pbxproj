@@ -33,6 +33,7 @@
 		5493AA5D198FDC79009EF324 /* OverlayScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayScrollView.m; sourceTree = "<group>"; };
 		5493AA5F198FE381009EF324 /* TouchDelayGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelayGestureRecognizer.h; sourceTree = "<group>"; };
 		5493AA60198FE381009EF324 /* TouchDelayGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelayGestureRecognizer.m; sourceTree = "<group>"; };
+		5493AA9A1990252E009EF324 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		54B8C743198FB718001515B4 /* ScrollViewGettingTouched.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollViewGettingTouched.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B8C747198FB718001515B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54B8C748198FB718001515B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,6 +71,7 @@
 		54B8C73A198FB718001515B4 = {
 			isa = PBXGroup;
 			children = (
+				5493AA9A1990252E009EF324 /* Readme.md */,
 				54B8C745198FB718001515B4 /* ScrollViewGettingTouched */,
 				54B8C75C198FB718001515B4 /* ScrollViewGettingTouchedTests */,
 				54B8C744198FB718001515B4 /* Products */,
