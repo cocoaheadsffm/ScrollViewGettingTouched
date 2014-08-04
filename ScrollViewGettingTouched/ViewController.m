@@ -93,6 +93,10 @@
         [self dotMove:dot withGesture:gesture];
     }];
     
+    _scrollView.panGestureRecognizer.enabled = NO;
+    _scrollView.panGestureRecognizer.enabled = YES;
+    
+    
     //TODO figure out nifty animation method
     [self arrageDotsNeatlyInView:_drawerView.contentView];
     
