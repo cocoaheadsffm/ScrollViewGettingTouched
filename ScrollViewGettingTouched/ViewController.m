@@ -11,6 +11,8 @@
 
 @interface ViewController ()
 @property(nonatomic, strong) UIView* canvasView;
+@property(nonatomic, strong) UIScrollView* scrollView;
+@property(nonatomic, strong) UIVisualEffectView* drawerView;
 @end
 
 @implementation ViewController
@@ -24,6 +26,17 @@
     [self.view addSubview:_canvasView];
     
     [self addDotsRandomly:42 toView:_canvasView];
+    
+    _scrollView = [[UIScrollView alloc] initWithFrame:bounds];
+    [self.view addSubview:_scrollView];
+    
+    _drawerView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+    _drawerView.frame = CGRectMake(0, 0, CGRectGetWidth(bounds), 650.0f);
+    [_scrollView addSubview:_drawerView];
+    
+    
+    _scrollView.contentSize = CGSizeMake(CGRectGetWidth(bounds), CGRectGetHeight(bounds) + CGRectGetHeight(_drawerView.frame));
+    _scrollView.contentOffset = CGPointMake(0, CGRectGetHeight(_drawerView.frame));
 }
 
 - (void)addDotsRandomly:(NSUInteger)count toView:(UIView*)view {
