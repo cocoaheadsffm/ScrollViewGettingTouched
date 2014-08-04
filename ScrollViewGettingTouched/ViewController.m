@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DotView.h"
+#import "OverlayScrollView.h"
 
 @interface ViewController ()
 @property(nonatomic, strong) UIView* canvasView;
@@ -28,7 +29,7 @@
     [self addDots:25 toView:_canvasView];
     [self arrageDotsRandomlyInView:_canvasView];
     
-    _scrollView = [[UIScrollView alloc] initWithFrame:bounds];
+    _scrollView = [[OverlayScrollView alloc] initWithFrame:bounds];
     [self.view addSubview:_scrollView];
     
     _drawerView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
@@ -40,7 +41,7 @@
     
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(bounds), CGRectGetHeight(bounds) + CGRectGetHeight(_drawerView.frame));
     _scrollView.contentOffset = CGPointMake(0, CGRectGetHeight(_drawerView.frame));
-    _scrollView.userInteractionEnabled = NO;
+    //_scrollView.userInteractionEnabled = NO;
     //restore panning
     [self.view addGestureRecognizer:_scrollView.panGestureRecognizer];
     

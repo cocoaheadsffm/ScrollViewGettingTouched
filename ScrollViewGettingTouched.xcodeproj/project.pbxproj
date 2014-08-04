@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5493AA5E198FDC79009EF324 /* OverlayScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5493AA5D198FDC79009EF324 /* OverlayScrollView.m */; };
 		54B8C749198FB718001515B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B8C748198FB718001515B4 /* main.m */; };
 		54B8C74C198FB718001515B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B8C74B198FB718001515B4 /* AppDelegate.m */; };
 		54B8C74F198FB718001515B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B8C74E198FB718001515B4 /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5493AA5C198FDC79009EF324 /* OverlayScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayScrollView.h; sourceTree = "<group>"; };
+		5493AA5D198FDC79009EF324 /* OverlayScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayScrollView.m; sourceTree = "<group>"; };
 		54B8C743198FB718001515B4 /* ScrollViewGettingTouched.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollViewGettingTouched.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B8C747198FB718001515B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54B8C748198FB718001515B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 				54B8C76C198FBC83001515B4 /* Main.storyboard */,
 				54B8C753198FB718001515B4 /* Images.xcassets */,
 				54B8C746198FB718001515B4 /* Supporting Files */,
+				5493AA5C198FDC79009EF324 /* OverlayScrollView.h */,
+				5493AA5D198FDC79009EF324 /* OverlayScrollView.m */,
 			);
 			path = ScrollViewGettingTouched;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 				54B8C74C198FB718001515B4 /* AppDelegate.m in Sources */,
 				54B8C76B198FBBCF001515B4 /* DotView.m in Sources */,
 				54B8C749198FB718001515B4 /* main.m in Sources */,
+				5493AA5E198FDC79009EF324 /* OverlayScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +405,7 @@
 				54B8C765198FB718001515B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		54B8C766198FB718001515B4 /* Build configuration list for PBXNativeTarget "ScrollViewGettingTouchedTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +414,7 @@
 				54B8C768198FB718001515B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
