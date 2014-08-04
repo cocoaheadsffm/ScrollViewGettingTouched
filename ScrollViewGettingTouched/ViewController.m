@@ -10,7 +10,7 @@
 #import "DotView.h"
 #import "OverlayScrollView.h"
 
-@interface ViewController ()
+@interface ViewController ()<UIGestureRecognizerDelegate>
 @property(nonatomic, strong) UIView* canvasView;
 @property(nonatomic, strong) UIScrollView* scrollView;
 @property(nonatomic, strong) UIVisualEffectView* drawerView;
@@ -56,6 +56,7 @@
         
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
         longPress.cancelsTouchesInView = NO;
+        longPress.delegate = self;
         [dotView addGestureRecognizer:longPress];
     }
 }
@@ -151,5 +152,8 @@
     }
 }
 
-
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    //just for the demo, better to be more specific
+    return YES;
+}
 @end
