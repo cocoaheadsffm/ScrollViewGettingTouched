@@ -90,17 +90,17 @@
 			children = (
 				54B8C74A198FB718001515B4 /* AppDelegate.h */,
 				54B8C74B198FB718001515B4 /* AppDelegate.m */,
-				54B8C74D198FB718001515B4 /* ViewController.h */,
-				54B8C74E198FB718001515B4 /* ViewController.m */,
-				5493AA5F198FE381009EF324 /* TouchDelayGestureRecognizer.h */,
-				5493AA60198FE381009EF324 /* TouchDelayGestureRecognizer.m */,
 				54B8C769198FBBCF001515B4 /* DotView.h */,
 				54B8C76A198FBBCF001515B4 /* DotView.m */,
+				5493AA5C198FDC79009EF324 /* OverlayScrollView.h */,
+				5493AA5D198FDC79009EF324 /* OverlayScrollView.m */,
+				5493AA5F198FE381009EF324 /* TouchDelayGestureRecognizer.h */,
+				5493AA60198FE381009EF324 /* TouchDelayGestureRecognizer.m */,
+				54B8C74D198FB718001515B4 /* ViewController.h */,
+				54B8C74E198FB718001515B4 /* ViewController.m */,
 				54B8C76C198FBC83001515B4 /* Main.storyboard */,
 				54B8C753198FB718001515B4 /* Images.xcassets */,
 				54B8C746198FB718001515B4 /* Supporting Files */,
-				5493AA5C198FDC79009EF324 /* OverlayScrollView.h */,
-				5493AA5D198FDC79009EF324 /* OverlayScrollView.m */,
 			);
 			path = ScrollViewGettingTouched;
 			sourceTree = "<group>";

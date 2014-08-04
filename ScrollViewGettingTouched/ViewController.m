@@ -2,7 +2,6 @@
 //  ViewController.m
 //  ScrollViewGettingTouched
 //
-//  Created by Flori on 04.08.14.
 //  Copyright (c) 2014 CocoaHeadsFFM. All rights reserved.
 //
 
@@ -71,7 +70,7 @@
     
     switch (gesture.state) {
         case UIGestureRecognizerStateBegan:
-            [self dotGrap:dot withGesture:gesture];
+            [self dotGrab:dot withGesture:gesture];
             break;
         case UIGestureRecognizerStateChanged:
             [self dotMove:dot withGesture:gesture];
@@ -86,7 +85,7 @@
     }
 }
 
-- (void)dotGrap:(UIView*)dot withGesture:(UIGestureRecognizer*)gesture {
+- (void)dotGrab:(UIView*)dot withGesture:(UIGestureRecognizer*)gesture {
     dot.center = [self.view convertPoint:dot.center fromView:dot.superview];
     [self.view addSubview:dot];
     
@@ -101,7 +100,6 @@
     _scrollView.panGestureRecognizer.enabled = YES;
     
     
-    //TODO figure out nifty animation method
     [self arrageDotsNeatlyInView:_drawerView.contentView];
     
 }
@@ -125,7 +123,7 @@
     }
     
     dot.center = [self.view convertPoint:dot.center fromView:dot.superview];
-    //TODO figure out nifty animation method
+
     [self arrageDotsNeatlyInView:_drawerView.contentView];
 
 }
@@ -137,7 +135,7 @@
     for (DotView* dotView in view.subviews) {
         CGFloat x = arc4random_uniform(maxX);
         CGFloat y = arc4random_uniform(maxY);
-        dotView.frame = CGRectMake(x, y, CGRectGetWidth(dotView.frame), CGRectGetHeight(dotView.frame));
+        dotView.center = CGPointMake(x, y);
     }
 }
 
