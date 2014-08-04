@@ -61,7 +61,64 @@
 }
 
 - (void)handleLongPress:(UILongPressGestureRecognizer*)gesture {
+    UIView *dot = gesture.view;
     
+    
+    switch (gesture.state) {
+        case UIGestureRecognizerStateBegan:
+            [self dotGrap:dot withGesture:gesture];
+            break;
+        case UIGestureRecognizerStateChanged:
+            [self dotMove:dot withGesture:gesture];
+            break;
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+            [self dotDrop:dot withGesture:gesture];
+            break;
+
+        default:
+            break;
+    }
+}
+
+- (void)dotGrap:(UIView*)dot withGesture:(UIGestureRecognizer*)gesture {
+    dot.center = [self.view convertPoint:dot.center fromView:dot.superview];
+    [self.view addSubview:dot];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        dot.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        dot.alpha = 0.8f;
+        //beware of finger jump
+        [self dotMove:dot withGesture:gesture];
+    }];
+    
+    //TODO figure out nifty animation method
+    [self arrageDotsNeatlyInView:_drawerView.contentView];
+    
+}
+
+- (void)dotMove:(UIView*)dot withGesture:(UIGestureRecognizer*)gesture {
+    dot.center = [gesture locationInView:self.view];
+    
+}
+
+- (void)dotDrop:(UIView*)dot withGesture:(UIGestureRecognizer*)gesture {
+    [UIView animateWithDuration:0.2 animations:^{
+        dot.transform = CGAffineTransformIdentity;
+        dot.alpha = 1.0f;
+    }];
+    
+    CGPoint locationInDrawer = [gesture locationInView:_drawerView];
+    if (CGRectContainsPoint([_drawerView bounds], locationInDrawer)) {
+        [_drawerView.contentView addSubview:dot];
+    } else {
+        [_canvasView addSubview:dot];
+    }
+    
+    dot.center = [self.view convertPoint:dot.center fromView:dot.superview];
+    //TODO figure out nifty animation method
+    [self arrageDotsNeatlyInView:_drawerView.contentView];
+
 }
 
 - (void)arrageDotsRandomlyInView:(UIView*)view {
@@ -91,8 +148,6 @@
             x = padding;
             y += spaceOfOneDot;
         }
-
-
     }
 }
 
