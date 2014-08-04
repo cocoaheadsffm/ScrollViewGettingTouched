@@ -56,4 +56,26 @@
     [self setNeedsDisplay];
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    CGFloat h,s,b,a;
+    if ([_color getHue:&h saturation:&s brightness:&b alpha:&a]) {
+        self.backgroundColor = [UIColor colorWithHue:h
+                                          saturation:s
+                                          brightness:1.0f
+                                               alpha:a];
+    }
+
+    [self setNeedsDisplay];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.backgroundColor = _color;
+    [self setNeedsDisplay];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.backgroundColor = _color;
+    [self setNeedsDisplay];
+}
+
 @end

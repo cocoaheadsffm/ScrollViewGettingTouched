@@ -37,6 +37,8 @@
     
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(bounds), CGRectGetHeight(bounds) + CGRectGetHeight(_drawerView.frame));
     _scrollView.contentOffset = CGPointMake(0, CGRectGetHeight(_drawerView.frame));
+    _scrollView.userInteractionEnabled = NO;
+    
 }
 
 - (void)addDotsRandomly:(NSUInteger)count toView:(UIView*)view {
