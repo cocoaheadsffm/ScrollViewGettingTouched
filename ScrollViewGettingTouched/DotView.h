@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DotView : UIView
-+ (instancetype)randomDotViewWithSize:(CGSize)size;
+@property(nonatomic) CGFloat radius;
+@property(nonatomic) UIColor* color;
++ (instancetype)randomDot;
++ (CGFloat)maxRadius;
 @end

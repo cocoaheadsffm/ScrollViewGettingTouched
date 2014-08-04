@@ -10,26 +10,26 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface DotView()
-@property(nonatomic) CGFloat radius;
-@property(nonatomic) UIColor* color;
+
 @end
 
 @implementation DotView
 
-+ (instancetype)randomDotViewWithSize:(CGSize)size {
++ (instancetype)randomDot {
     
-    CGFloat radius = arc4random_uniform(42);
+    CGFloat radius = arc4random_uniform([self maxRadius]);
     CGFloat red = arc4random_uniform(255.0f) / 255.0f;
     CGFloat green = arc4random_uniform(255.0f) / 255.0f;
     CGFloat blue = arc4random_uniform(255.0f) / 255.0f;
     
-    CGFloat x = arc4random_uniform(size.width);
-    CGFloat y = arc4random_uniform(size.height);
-    
-    DotView* random = [[DotView alloc] initWithFrame:CGRectMake(x, y, radius*2, radius*2)];
+    DotView* random = [[DotView alloc] initWithFrame:CGRectMake(0, 0, radius*2, radius*2)];
     random.radius = radius;
     random.color = [UIColor colorWithRed:red green:green blue:blue alpha:1.0f];
     return random;
+}
+
++ (CGFloat)maxRadius {
+    return 42;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
