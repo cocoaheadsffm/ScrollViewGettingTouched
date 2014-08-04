@@ -10,7 +10,7 @@
 #import "OverlayScrollView.h"
 #import "TouchDelayGestureRecognizer.h"
 
-@interface ViewController ()<UIGestureRecognizerDelegate>
+@interface ViewController ()<UIGestureRecognizerDelegate, UIScrollViewDelegate>
 @property(nonatomic, strong) UIView* canvasView;
 @property(nonatomic, strong) UIScrollView* scrollView;
 @property(nonatomic, strong) UIVisualEffectView* drawerView;
@@ -33,6 +33,8 @@
     [self arrageDotsRandomlyInView:_canvasView];
     
     _scrollView = [[OverlayScrollView alloc] initWithFrame:bounds];
+    _scrollView.bounces = NO; //switch back to YES, if u like bounces
+    _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
     
     _drawerView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
@@ -169,4 +171,17 @@
     //just for the demo, better to be more specific
     return YES;
 }
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
+                     withVelocity:(CGPoint)velocity
+              targetContentOffset:(inout CGPoint *)targetContentOffset {
+    NSLog(@"velocity=%@", NSStringFromCGPoint(velocity));
+    if (velocity.y > 0.0) {
+        *targetContentOffset = CGPointMake(targetContentOffset->x, 650.0);
+    } else {
+        *targetContentOffset = CGPointMake(targetContentOffset->x, 0.0);
+    }
+    //    [scrollView scrollRectToVisible: animated:<#(BOOL)#>]
+}
+
 @end
