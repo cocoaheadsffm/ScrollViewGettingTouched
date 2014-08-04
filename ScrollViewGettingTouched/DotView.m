@@ -78,4 +78,14 @@
     [self setNeedsDisplay];
 }
 
+
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    CGRect touchBounds = self.bounds;
+    if (_radius < 22.0) {
+        CGFloat expansion = 22.0 - _radius;
+        touchBounds = CGRectInset(touchBounds, -expansion, -expansion);
+    }
+    return CGRectContainsPoint(touchBounds, point);
+}
+
 @end
