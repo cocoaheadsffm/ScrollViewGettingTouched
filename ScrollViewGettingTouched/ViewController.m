@@ -53,7 +53,15 @@
         DotView *dotView = [DotView randomDot];
     
         [view addSubview:dotView];
+        
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+        
+        [dotView addGestureRecognizer:longPress];
     }
+}
+
+- (void)handleLongPress:(UILongPressGestureRecognizer*)gesture {
+    
 }
 
 - (void)arrageDotsRandomlyInView:(UIView*)view {
