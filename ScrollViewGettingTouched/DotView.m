@@ -52,7 +52,6 @@
 - (void)setColor:(UIColor *)color {
     _color = color;
     self.backgroundColor = color;
-    [self setNeedsDisplay];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -63,18 +62,14 @@
                                           brightness:1.0f
                                                alpha:a];
     }
-
-    [self setNeedsDisplay];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     self.backgroundColor = _color;
-    [self setNeedsDisplay];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     self.backgroundColor = _color;
-    [self setNeedsDisplay];
 }
 
 
